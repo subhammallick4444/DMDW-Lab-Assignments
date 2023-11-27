@@ -1,0 +1,20 @@
+All rules that correlate the presence of one set of items (item set) with that of another set of items.
+E.g., 98% of people who purchase tires and auto accessories also get automotive services done
+A ⇒ B [s, c]
+ Support: denotes the frequency of the rule within transactions. A high value means that the rules involve a great part of database. Support (A ⇒ B [s, c]) = p (A ∪ B) 
+Confidence: denotes the percentage of transactions containing A which contain also B. It is an estimation of conditioned probability. Confidence (A ⇒ B [s, c]) = p (B|A) = sup (A, B)/sup (A).
+Apriori Algorithm
+The Apriori algorithm principle says that if an item set is frequent, then all of its subsets are frequent. This means that if {0,1} is frequent, then {0} and {1} have to be frequent.
+The rule turned around says that if an item set is infrequent, then its supersets are also infrequent.
+We first need to find the frequent item sets, and then we can find association rules.
+Pros: Easy to code up
+Cons: May be slow on large datasets
+Works with: Numeric values, nominal values
+Association analysis
+Looking for hidden relationships in large datasets is known as association analysis or association rule learning. The problem is, finding different combinations of items can be a time-consuming task and prohibitively expensive in terms of computing power. These interesting relationships can take two forms: frequent item sets or association rules. Frequent item sets are a collection of items that frequently occur together. The second way to view interesting relationships is association rules. Association rules suggest that a strong relationship exists between two items.
+With the frequent item sets and association rules, retailers have a much better understanding of their customers. Another example is search terms from a search engine.
+The support and confidence are ways we can quantify the success of our association analysis.
+The support of an item set is defined as the percentage of the dataset that contains this item set.
+The confidence for a rule P ➞ H is defined as support (P | H)/ support (P). Remember, in Python, the | symbol is the set union; the mathematical symbol is U. P | H means all the items in set P or in set H.
+Finding frequent item sets
+The way to find frequent item sets is the Apriori algorithm. The Apriori algorithm needs a minimum support level as an input and a data set. The algorithm will generate a list of all candidate item sets with one item.The transaction data set will then be scanned to see which sets meet the minimum support level. Sets that don’t meet the minimum support level will get tossed out. The remaining sets will then be combined to make item sets with two elements. Again, the transaction dataset will be scanned and item sets not meeting the minimum support level will get tossed. This procedure will be repeated until all sets are tossed out.
